@@ -1,16 +1,18 @@
-require "./evaluator"
-require "./painter"
+require "evaluator"
+require "painter"
 
 class STester
 
   class << self
 
-    def description text
-      p text
+    def description klass, &test
+      klass
+      yield test
     end
 
-    def context text
+    def context text, &test
       p text
+      yield test
     end
 
     def it text
